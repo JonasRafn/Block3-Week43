@@ -1,0 +1,21 @@
+<div class="section">   
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <h1>All persons</h1>
+            </div>
+            <table class="table table-responsive table-bordered table-condensed">
+                <thead>
+                <th>Name</th>
+                <th>Details</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in ctrl.persons">
+                        <td>{{person.name}}</td>
+                        <td><a ng-href="http://localhost:8080/Problem2-RoutingExample/#/{{person.id}}">{{person.id}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

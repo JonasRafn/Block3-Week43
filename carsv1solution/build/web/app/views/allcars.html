@@ -1,0 +1,51 @@
+<div class="container">
+
+
+            <h1>{{ctrl.title}}</h1>
+
+            <h2>Number of cars: {{ctrl.cars.length}}</h2>
+            <input type="search" ng-model="ctrl.carfilter" placeholder="Filter cars">
+
+            <div class="row">
+                <div class="col-md-9">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td><a href="" ng-click="ctrl.predicate = 'id';
+                                            reverse = !reverse">ID</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'year';
+                                            reverse = !reverse">Year</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'registered';
+                                            reverse = !reverse">Registered</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'make';
+                                            reverse = !reverse">Make</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'model';
+                                            reverse = !reverse">Model</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'description';
+                                            reverse = !reverse">Description</a></td>
+                                <td><a href="" ng-click="ctrl.predicate = 'price';
+                                            reverse = !reverse">Price</a></td>
+                                <td><a>Action</a></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="car in ctrl.cars| filter: ctrl.carfilter | orderBy:ctrl.predicate:reverse">
+                                <td>{{car.id}}</td>
+                                <td>{{car.year}}</td>
+                                <td>{{car.registered| date }}</td>
+                                <td>{{car.make}}</td>
+                                <td>{{car.model}}</td>
+                                <td>{{car.description}}</td>
+                                <td>{{car.price| currency}}</td>
+                                <td>
+                                    <a href="#" ng-click="ctrl.editCar(car.id)">edit</a> |
+                                    <a href="#" ng-click="ctrl.deleteCar(car.id)">delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </div>
+        </div>
